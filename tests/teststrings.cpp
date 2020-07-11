@@ -25,9 +25,14 @@ public:
             for (int& x : true_result) fin >> x;
         }
         auto your_result(strings::BuildSuffixArray(s));
+        for (int& x : your_result) ++x;
         EXPECT_EQ(your_result.size(), true_result.size());
-        if (your_result.size() == true_result.size()) for (int i(0); i < your_result.size(); ++i)
-            EXPECT_EQ(your_result[i], true_result[i]);
+        if (your_result.size() == true_result.size())
+            for (int i(0); i < your_result.size(); ++i)
+            {
+                EXPECT_EQ(your_result[i], true_result[i]);
+                if (your_result[i] != true_result[i]) break;
+            }
     }
 private:
     fs::path in_, out_;
@@ -53,7 +58,7 @@ void RegisterSuffixArrayTests()
         std::string j(test_names[i].filename().string());
         ::testing::RegisterTest(
                 "SuffixArray", ("Test" + j).c_str(),
-                nullptr, j.c_str(),
+                nullptr, nullptr,
                 __FILE__, __LINE__,
                 [=]() -> SuffixArrayTest* { return new SuffixArrayTest(input, output); }
                 );
