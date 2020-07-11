@@ -8,10 +8,10 @@
 
 ### Сборка и запуск тестов
 (необходим cmake версии >=3.18)
-'''bash
+```bash
 mkdir build
 cd build
 cmake ..
 make
 ctest --verbose
-'''
+```
