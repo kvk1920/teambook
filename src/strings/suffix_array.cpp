@@ -11,21 +11,12 @@ namespace ngu_teambook::strings
 vector<int> SortCycleShifts(string_view s)
 {
     int n(s.size());
-    /*
-     * Каждому циклическому сдвигу присваевается класс,
-     * причём номер класса равен номеру циклического сдвига в порядке возрастания
-     * (по первым нескольким элементам)
-     */
     vector<int> classes(n), next_classes(n);
-    // сортировка по первым x элементам и по вторым x элементам
     vector<int> sorted(n), sorted2(n);
-    // число классов, изначально число возможных символов
     int num_classes(256);
-    // массив для цифровой сортировки
     vector<int> digit_sort(num_classes, 0);
     for (char c : s) ++digit_sort[c];
     partial_sum(digit_sort.begin(), digit_sort.end(), digit_sort.begin());
-    // сортировка по первой букве
     for (int i(0); i < n; ++i)
         sorted[--digit_sort[s[i]]] = i;
     classes[sorted[0]] = 0;
@@ -45,7 +36,6 @@ vector<int> SortCycleShifts(string_view s)
         digit_sort.assign(num_classes, 0);
         for (int c : classes) ++digit_sort[c];
         partial_sum(digit_sort.begin(), digit_sort.end(), digit_sort.begin());
-        // берём отсортированные по второму классу сдвиги и сортируем стабильно по первому
         for (int i(n - 1); i >= 0; --i)
             sorted[--digit_sort[classes[sorted2[i]]]] = sorted2[i];
         next_classes[sorted[0]] = 0;
