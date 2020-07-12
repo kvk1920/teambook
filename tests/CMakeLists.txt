@@ -2,6 +2,8 @@ file(ARCHIVE_EXTRACT INPUT "${NGU_TeamBook_SOURCE_DIR}/assets/tests/strings/suff
         DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/strings")
 file(ARCHIVE_EXTRACT INPUT "${NGU_TeamBook_SOURCE_DIR}/assets/tests/strings/lcp.7z"
         DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/strings")
+file(ARCHIVE_EXTRACT INPUT "${NGU_TeamBook_SOURCE_DIR}/assets/tests/strings/suffix_tree.7z"
+        DESTINATION "${CMAKE_CURRENT_BINARY_DIR}/strings")
 
 FetchContent_Declare(
         googletest
