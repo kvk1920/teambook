@@ -15,8 +15,9 @@ void TestSuffixArray(fs::path in, fs::path out)
         std::ifstream fin(out);
         for (int &x : true_result) fin >> x;
     }
-    auto your_result(strings::BuildSuffixArray(s));
-    for (int &x : your_result) ++x;
+    auto your_result(strings::SortCycleShifts(s + char(1)));
+    your_result.erase(your_result.begin());
+    for (int& x : your_result) ++x;
     EXPECT_EQ(your_result.size(), true_result.size());
     if (your_result.size() == true_result.size())
         for (int i(0); i < your_result.size(); ++i)

@@ -51,12 +51,4 @@ namespace ngu_teambook::strings
         }
         return sorted;
     }
-
-    std::vector<int> BuildSuffixArray(std::string s, char unique_char)
-    {
-        s.push_back(unique_char);
-        auto result(SortCycleShifts(s));
-        result.erase(result.begin());
-        return result;
-    }
 }
