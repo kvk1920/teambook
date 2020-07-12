@@ -14,8 +14,7 @@ set(BUILD_GTEST ON CACHE BOOL "" FORCE)
 
 FetchContent_MakeAvailable(googletest)
 
-add_executable(teststrings teststrings.cpp)
-find_package(Threads)
-target_link_libraries(teststrings PRIVATE NGU_TeamBook::Strings gtest Threads::Threads)
+add_executable(teststrings test_strings.cpp)
+target_link_libraries(teststrings PRIVATE NGU_TeamBook::Strings gtest)
 
 add_test(NAME teststrings COMMAND teststrings)
