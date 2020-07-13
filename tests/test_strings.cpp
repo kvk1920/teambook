@@ -129,9 +129,9 @@ void TestSuffixTree(fs::path in, fs::path out)
 }
 
 std::tuple<const char*, fs::path, std::function<void(fs::path, fs::path)>> test_suits[] = {
-        //{"SuffixArray", "strings/suffix_array", TestSuffixArray},
-        //{"LCP", "strings/lcp", TestLCP},
-        //{"Hash", "strings/hash", TestHash},
+        {"SuffixArray", "strings/suffix_array", TestSuffixArray},
+        {"LCP", "strings/lcp", TestLCP},
+        {"Hash", "strings/hash", TestHash},
         {"SuffixTree", "strings/suffix_tree", TestSuffixTree},
 };
 
