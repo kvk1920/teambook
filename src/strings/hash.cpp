@@ -1,0 +1,1 @@
+#include <ngu_teambook/strings/hash.hpp>

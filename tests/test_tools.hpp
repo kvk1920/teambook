@@ -50,3 +50,13 @@ inline void RegisterTests(const char* test_suit, fs::path path, std::function<vo
         );
     }
 }
+
+#define EXPECT_EQ_VECTORS(your_result, true_result) \
+    EXPECT_EQ(your_result.size(), true_result.size()); \
+    if (your_result.size() == true_result.size()) \
+        for (int i(0); i < your_result.size(); ++i) \
+        { \
+            EXPECT_EQ(your_result[i], true_result[i]); \
+            if (your_result[i] != true_result[i]) break; \
+        } \
+    static_assert(true, "force semicolon")
